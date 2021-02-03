@@ -11,7 +11,7 @@ class _TodoScreenState extends State<TodoScreen> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    final formattedDate = "${now.day} ${now.month}";
+    final formattedDate = DateFormat('EEEE, d MMMM').format(now);
 
     return Scaffold(
         appBar: EmptyAppBar(),
@@ -29,15 +29,23 @@ class _TodoScreenState extends State<TodoScreen> {
             color: Colors.black,
           ),
         ),
-        body: Column(
-          children: [
-            Padding(
-                padding: EdgeInsets.only(top: 24.0, left: 32.0),
-                child: Text(
-                  "To Do",
-                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
-                )),
-          ],
-        ));
+        body: Column(children: [
+          Padding(
+              padding: EdgeInsets.only(left: 24.0, top: 24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "To Do",
+                    style: TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
+                  ),
+                  Text(formattedDate,
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey))
+                ],
+              ))
+        ]));
   }
 }
