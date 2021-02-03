@@ -12,10 +12,10 @@ class YATA extends StatelessWidget {
         title: 'YATA',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.green,
-          accentColor: Colors.greenAccent[700],
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+            primarySwatch: Colors.green,
+            accentColor: Colors.greenAccent[700],
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            fontFamily: 'Jost'),
         home: TodoScreen());
   }
 }

@@ -74,3 +74,17 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: lib/assets/fonts/Quicksand-Regular.ttf
+        - asset: lib/assets/fonts/Quicksand-Medium.ttf
+        - asset: lib/assets/fonts/Quicksand-Bold.ttf
+    - family: Jost
+      fonts:
+        - asset: lib/assets/fonts/Jost-Light.ttf
+        - asset: lib/assets/fonts/Jost-Regular.ttf
+        - asset: lib/assets/fonts/Jost-Medium.ttf
+        - asset: lib/assets/fonts/Jost-SemiBold.ttf
+        - asset: lib/assets/fonts/Jost-Bold.ttf
+        - asset: lib/assets/fonts/Jost-Black.ttf

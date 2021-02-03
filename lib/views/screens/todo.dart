@@ -21,16 +21,18 @@ class _TodoScreenState extends State<TodoScreen> {
           shape: CircularNotchedRectangle(),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Container(
-            height: 58.0,
-            color: Colors.grey[900],
+            height: 70.0,
+            color: Colors.black,
           ),
         ),
         body: Column(
-          children: <Widget>[
-            Text(
-              "To do",
-              style: TextStyle(fontSize: 40),
-            )
+          children: [
+            Padding(
+                padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 32.0),
+                child: Text(
+                  "To Do",
+                  style: TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
+                )),
           ],
         ));
   }
