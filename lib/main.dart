@@ -1,5 +1,5 @@
-import 'package:YATA/screens/todo.dart';
 import 'package:flutter/material.dart';
+import 'package:YATA/views/screens/todo.dart';
 
 void main() {
   runApp(YATA());
@@ -13,7 +13,7 @@ class YATA extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.green,
-          accentColor: Colors.greenAccent[400],
+          accentColor: Colors.greenAccent[700],
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: TodoScreen());
