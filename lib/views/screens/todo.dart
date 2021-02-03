@@ -1,5 +1,6 @@
 import 'package:YATA/views/widgets/empty_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TodoScreen extends StatefulWidget {
   @override
@@ -9,6 +10,9 @@ class TodoScreen extends StatefulWidget {
 class _TodoScreenState extends State<TodoScreen> {
   @override
   Widget build(BuildContext context) {
+    final now = DateTime.now();
+    final formattedDate = "${now.day} ${now.month}";
+
     return Scaffold(
         appBar: EmptyAppBar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -21,14 +25,14 @@ class _TodoScreenState extends State<TodoScreen> {
           shape: CircularNotchedRectangle(),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Container(
-            height: 70.0,
+            height: 60.0,
             color: Colors.black,
           ),
         ),
         body: Column(
           children: [
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 32.0),
+                padding: EdgeInsets.only(top: 24.0, left: 32.0),
                 child: Text(
                   "To Do",
                   style: TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
