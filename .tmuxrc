@@ -1,4 +1,0 @@
-new -s emu -d
-send-keys -t emu "emulator -avd android29" ENTER
-send-keys "nvim" ENTER
-bind-key C-k kill-session -t emu \; kill-session

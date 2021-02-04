@@ -42,3 +42,4 @@ app.*.map.json
 
 # Workspace editor config
 .nvimrc
+.tmuxrc
