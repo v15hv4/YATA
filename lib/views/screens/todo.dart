@@ -36,7 +36,7 @@ class _TodoScreenState extends State<TodoScreen> {
                 width: double.infinity,
                 child: Padding(
                     padding:
-                        EdgeInsets.only(left: 24.0, top: 24.0, bottom: 12.0),
+                        EdgeInsets.only(left: 32.0, top: 32.0, bottom: 32.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -10,7 +10,12 @@ class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
     final _todoItems = [
-      {"title": "One", "completed": false, "timestamp": DateTime.now()},
+      {
+        "title":
+            "Some very long text that overflows qwertyuiop asdfghjkl zxcvbnm",
+        "completed": true,
+        "timestamp": DateTime.now()
+      },
       {"title": "Two", "completed": false, "timestamp": DateTime.now()},
       {"title": "Three", "completed": false, "timestamp": DateTime.now()},
       {"title": "Four", "completed": false, "timestamp": DateTime.now()},
