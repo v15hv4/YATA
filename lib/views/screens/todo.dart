@@ -1,5 +1,7 @@
+import 'package:YATA/views/screens/add_todo.dart';
 import 'package:YATA/views/widgets/empty_appbar.dart';
 import 'package:YATA/views/widgets/todo_list.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -19,14 +21,15 @@ class _TodoScreenState extends State<TodoScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           backgroundColor: Theme.of(context).accentColor,
-          onPressed: () {},
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (_) => AddTodoScreen())),
           child: Icon(Icons.add),
         ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Container(
-            height: 60.0,
+            height: 50.0,
             color: Colors.black,
           ),
         ),
@@ -36,18 +39,18 @@ class _TodoScreenState extends State<TodoScreen> {
                 width: double.infinity,
                 child: Padding(
                     padding:
-                        EdgeInsets.only(left: 32.0, top: 32.0, bottom: 32.0),
+                        EdgeInsets.only(left: 32.0, top: 28.0, bottom: 24.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "To Do",
                           style: TextStyle(
-                              fontSize: 48, fontWeight: FontWeight.w500),
+                              fontSize: 42, fontWeight: FontWeight.w500),
                         ),
                         Text(formattedDate,
                             style: TextStyle(
-                                fontSize: 24,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.grey))
                       ],

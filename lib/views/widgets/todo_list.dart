@@ -32,13 +32,19 @@ class _TodoListState extends State<TodoList> {
       {"title": "Fifteen", "completed": false, "timestamp": DateTime.now()},
     ];
 
+    void toggleCompleted(int idx) {
+      setState(() {
+        _todoItems[idx]["completed"] = !_todoItems[idx]["completed"];
+      });
+    }
+
     return ListView.builder(
       itemCount: _todoItems.length + 1,
       itemBuilder: (context, index) {
         if (index == _todoItems.length) {
           return SizedBox(height: 50.0);
         }
-        return TodoItem(_todoItems[index]);
+        return TodoItem(index, _todoItems[index], toggleCompleted);
       },
     );
   }
