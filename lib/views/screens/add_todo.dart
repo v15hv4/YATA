@@ -1,6 +1,12 @@
+import 'package:YATA/views/helpers/db_helper.dart';
+import 'package:YATA/views/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
 class AddTodoScreen extends StatefulWidget {
+  final Todo todo;
+  final Function updateTodoList;
+  AddTodoScreen({this.todo, this.updateTodoList});
+
   @override
   _AddTodoScreenState createState() => _AddTodoScreenState();
 }
@@ -10,11 +16,28 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
   String _title = "";
   DateTime _datetime = DateTime.now();
 
+  @override
+  void initState() {
+    super.initState();
+    if (widget.todo != null) {
+      _title = widget.todo.title;
+    }
+  }
+
   _submit() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       print(_title);
 
+      // Todo todo = Todo(title: _title, datetime: _datetime, completed: false);
+      Todo todo = Todo(_title, _datetime, 0);
+      if (widget.todo == null) {
+        DatabaseHelper.instance.insertTodo(todo);
+      } else {
+        DatabaseHelper.instance.updateTodo(todo);
+      }
+
+      widget.updateTodoList();
       Navigator.pop(context);
     }
   }
@@ -61,7 +84,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                         color: Theme.of(context).accentColor,
                       ),
                       child: FlatButton(
-                          onPressed: () => null,
+                          onPressed: () => _submit(),
                           child: Text("Save",
                               style: TextStyle(color: Colors.white))),
                     ),

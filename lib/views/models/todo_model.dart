@@ -2,7 +2,7 @@ class Todo {
   int id;
   String title;
   DateTime datetime;
-  bool completed;
+  int completed;
 
   Todo(this.title, this.datetime, this.completed);
   Todo.withId({this.id, this.title, this.datetime, this.completed});

@@ -1,3 +1,5 @@
+import 'package:YATA/views/helpers/db_helper.dart';
+import 'package:YATA/views/models/todo_model.dart';
 import 'package:YATA/views/screens/add_todo.dart';
 import 'package:YATA/views/widgets/empty_appbar.dart';
 import 'package:YATA/views/widgets/todo_list.dart';
@@ -11,6 +13,20 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
+  Future<List<Todo>> todoItems;
+
+  updateTodoList() {
+    setState(() {
+      todoItems = DatabaseHelper.instance.getTodoList();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    updateTodoList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -22,7 +38,11 @@ class _TodoScreenState extends State<TodoScreen> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Theme.of(context).accentColor,
           onPressed: () => Navigator.push(
-              context, MaterialPageRoute(builder: (_) => AddTodoScreen())),
+              context,
+              MaterialPageRoute(
+                  builder: (_) => AddTodoScreen(
+                        updateTodoList: updateTodoList,
+                      ))),
           child: Icon(Icons.add),
         ),
         bottomNavigationBar: BottomAppBar(
@@ -55,9 +75,7 @@ class _TodoScreenState extends State<TodoScreen> {
                                 color: Colors.grey))
                       ],
                     ))),
-            Expanded(
-              child: TodoList(),
-            )
+            Expanded(child: TodoList(todoItems, updateTodoList))
           ],
         ));
   }
