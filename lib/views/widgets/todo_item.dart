@@ -13,7 +13,7 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ListTile(
         leading: Checkbox(
           onChanged: (value) {

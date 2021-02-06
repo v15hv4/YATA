@@ -34,6 +34,7 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
       if (widget.todo == null) {
         DatabaseHelper.instance.insertTodo(todo);
       } else {
+        todo.id = widget.todo.id;
         DatabaseHelper.instance.updateTodo(todo);
       }
 
