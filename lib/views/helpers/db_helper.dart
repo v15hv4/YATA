@@ -55,4 +55,11 @@ class DatabaseHelper {
     final int res = await db.insert(todoTable, todo.toMap());
     return res;
   }
+
+  Future<int> updateTodo(Todo todo) async {
+    Database db = await this.db;
+    final int res = await db.update(todoTable, todo.toMap(),
+        where: '$colId = ?', whereArgs: [todo.id]);
+    return res;
+  }
 }
